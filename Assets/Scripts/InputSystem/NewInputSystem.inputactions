@@ -1,0 +1,74 @@
+{
+    "name": "NewInputSystem",
+    "maps": [
+        {
+            "name": "Move",
+            "id": "06aa47aa-aabe-4e5e-a252-44a4f841c03f",
+            "actions": [
+                {
+                    "name": "MoveLeft",
+                    "type": "Button",
+                    "id": "a049c40b-3294-4409-a112-44e2bf12c923",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MoveRight",
+                    "type": "Button",
+                    "id": "ca64aef3-0147-44b5-8c46-f02edc4a9172",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "d40849d5-f79a-4e47-a759-a15933ae9da4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c2b12c99-80ed-406f-a81e-85d42e8cb470",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6bb281a4-6487-43a2-9fcd-bf24d98be83b",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06246910-0baf-450b-ae35-e56b34104c16",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
