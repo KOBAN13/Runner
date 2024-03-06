@@ -1,4 +1,5 @@
 using Character;
+using Character.Collisions;
 using Character.Physics;
 using Character.PlayerJumpController;
 using InputSystem;
@@ -13,6 +14,7 @@ public class SceneInstaller : MonoInstaller
     [field: SerializeField] public CharacterInputController characterController;
     [field: SerializeField] public PlayerMovementController movementController;
     [field: SerializeField] public PlayerJumpController jumpController;
+    [field: SerializeField] public CoroutineRunner coroutineRunner;
     public override void InstallBindings()
     {
         BindPlayer();
@@ -20,22 +22,38 @@ public class SceneInstaller : MonoInstaller
         BindInputInterface();
         BindAllInterface();
         BindPhysics();
+        BindCollisionHandler();
+        BindCourutine();
+        BindStopMove();
     }
-
     
-    //как биндить интерфейсы
-    //PlayerMovementController в бинд
-    //Gravity v bind ++
-
+    //IConfigable, IAnimator, IUseConfigable, IStopeMove
+    
     private void BindAllInterface()
     {
         Container.BindInterfacesAndSelfTo<PlayerMovementController>().FromInstance(movementController).AsCached().NonLazy();
         Container.BindInterfacesAndSelfTo<PlayerJumpController>().FromInstance(jumpController).AsCached().NonLazy();
     }
 
+    private void BindCollisionHandler()
+    {
+        Container.BindInterfacesAndSelfTo<CollisionHandler>().AsSingle().NonLazy();
+    }
+
     private void BindPhysics()
     {
         Container.BindInterfacesAndSelfTo<Gravity>().AsSingle().NonLazy();
+    }
+
+    private void BindCourutine()
+    {
+        Container.BindInterfacesAndSelfTo<CoroutineRunner>().FromInstance(coroutineRunner).AsSingle();
+        Container.BindInterfacesAndSelfTo<CoroutineHelper>().AsSingle().NonLazy();
+    }
+
+    private void BindStopMove()
+    {
+        Container.BindInterfacesAndSelfTo<StopMovements>().AsSingle().NonLazy();
     }
     
     private void BindInputInterface()

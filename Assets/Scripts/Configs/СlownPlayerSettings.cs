@@ -1,7 +1,8 @@
+using Configs;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Characters Configs", menuName = "CharactersConfigs / Clown")]
-public class СlownPlayerSettings : ScriptableObject
+public class СlownPlayerSettings : ScriptableObject, IConfigable
 {
     [field: SerializeField] public float MinSpeed { get; private set; }
     [field: SerializeField] public float MaxSpeed { get; private set; }

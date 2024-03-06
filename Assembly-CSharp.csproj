@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\CharacterScripts\IPlayerSettings.cs" />
      <Compile Include="Assets\Scripts\Installer\SceneInstaller.cs" />
      <Compile Include="Assets\Scripts\InputSystem\CharacterInputController.cs" />
+     <Compile Include="Assets\Scripts\InputSystem\NewInputSystem.cs" />
      <Compile Include="Assets\Scripts\InputSystem\Swipe.cs" />
      <Compile Include="Assets\Scripts\CharacterScripts\PlayerJumpController\IJumpable.cs" />
      <Compile Include="Assets\Scripts\Finish\FinishMenu.cs" />
@@ -58,7 +59,18 @@
      <Compile Include="Assets\Scripts\CharacterScripts\PlayerJumpController\PlayerJumpController.cs" />
      <Compile Include="Assets\Scripts\InputSystem\IUseInputSystem.cs" />
      <Compile Include="Assets\Scripts\InputSystem\InputSystemPC.cs" />
-     <Compile Include="Assets\Scripts\InputSystem\NewInputSystem.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\Collisions\CollisionHandler.cs" />
+     <Compile Include="Assets\Scripts\Animations\AnimatorPlayer.cs" />
+     <Compile Include="Assets\Scripts\Animations\AnimatorsNameParameters.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\Collisions\BootstrapPlayerCollision.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\Collisions\Obstacle.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\IAnimator.cs" />
+     <Compile Include="Assets\Scripts\Configs\IConfigable.cs" />
+     <Compile Include="Assets\Scripts\Configs\IUseConfigable.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\IStopMovable.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\StopMovements.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\CorutineHelper\CoroutineRunner.cs" />
+     <Compile Include="Assets\Scripts\CharacterScripts\CoroutineHelper.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

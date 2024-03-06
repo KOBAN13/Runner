@@ -10,10 +10,18 @@ namespace Character.PlayerJumpController
         [field: Header("Jump Settings")] 
         [field: SerializeField] public float JumpTime { get; private set; }
         [field: SerializeField] public float JumpHeight { get; private set; }
+
+        public bool IsJump
+        {
+            get => _isJump;
+            set => _isJump = value;
+        }
+        
         private float _jumpVelocity;
         private IPlayerSettings _playerSettings;
         private Gravity _gravity;
-        
+        private bool _isJump = true;
+
         [Inject]
         public void Construct(IPlayerSettings playerMovementController, Gravity gravity)
         {

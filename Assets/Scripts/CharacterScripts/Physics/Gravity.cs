@@ -35,10 +35,6 @@ namespace Character.Physics
             {
                 _playerSettings.TargetDirectionY -= _gravityForce * Time.deltaTime;
             }
-            // else
-            // {
-            //     _playerSettings.TargetDirectionY = -0.2f;
-            // }
         }
     }
 }

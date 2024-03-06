@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Characters Configs
   m_EditorClassIdentifier: 
   <MinSpeed>k__BackingField: 0
-  <MaxSpeed>k__BackingField: 4
+  <MaxSpeed>k__BackingField: 8
   <TimeToReachMaximumSpeed>k__BackingField: 3
   <RecoveryTimeAfterCollision>k__BackingField: 3
   <SliderSpeed>k__BackingField: 50

@@ -7,10 +7,11 @@ using Zenject;
 namespace Character
 {
     [RequireComponent(typeof(CharacterController))]
-    public class Player : MonoBehaviour, IControllable
+    public class Player : MonoBehaviour, IControllable, IAnimator
     {
         private IMovable _movable;
         private IJumpable _jumpable;
+        [field: SerializeField] public AnimatorPlayer animatorPlayer { get; private set; }
 
         [Inject]
         public void Construct(IMovable move, IJumpable jump)
@@ -27,14 +28,6 @@ namespace Character
         public void Jump()
         {
             _jumpable.Jump();
-        }
-
-        public void OnTriggerEnter(Collider other)
-        {
-            if (!other.TryGetComponent<FinishLevel>(out var finish)) return;
-            
-            finish.InvokeEvent();
-            finish.Dispose();
         }
     }
 }
