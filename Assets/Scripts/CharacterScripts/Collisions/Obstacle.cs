@@ -17,7 +17,7 @@ namespace Character.Collisions
         public void OnTriggerEnter(Collider other)
         {
             if(other.TryGetComponent<IUseConfigable>(out var config) && other.TryGetComponent<IAnimator>(out var animator)) 
-                _collisionHandler.NotifyPlayerCollision(animator, config, other);
+                _collisionHandler.NotifyObstacleCollision(animator, config);
         }
     }
 }

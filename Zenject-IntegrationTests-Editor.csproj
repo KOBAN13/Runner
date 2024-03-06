@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{d520cb53-ffb4-75e9-c7fa-8647ee22032b}</ProjectGuid>
+    <ProjectGuid>{83c983d6-bdf6-bdd4-98a4-a49f9042855b}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -322,10 +322,10 @@
      <HintPath>Z:\Новая папка\2021.3.8f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Zenject-usage">
-     <HintPath>Z:\Runer\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+     <HintPath>Z:\RunnerCircus\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>Z:\Runer\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+     <HintPath>Z:\RunnerCircus\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>Z:\Новая папка\2021.3.8f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -694,29 +694,29 @@
      <HintPath>Z:\Новая папка\2021.3.8f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.TestRunner">
-     <HintPath>Z:\Runer\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+     <HintPath>Z:\RunnerCircus\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.TestRunner">
-     <HintPath>Z:\Runer\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+     <HintPath>Z:\RunnerCircus\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>Z:\Runer\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>Z:\RunnerCircus\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>Z:\Runer\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>Z:\RunnerCircus\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject-TestFramework.csproj">
-      <Project>{9b3ffa8f-e3d6-acc2-2a70-c5e791866a4e}</Project>
+      <Project>{dbb028bf-bceb-fc8e-889f-ab588de7bbb5}</Project>
       <Name>Zenject-TestFramework</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{34736616-4fed-02ec-4096-6dc5950bbc15}</Project>
+      <Project>{a249a4eb-621c-e6c0-5696-75918d755d82}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-IntegrationTests.csproj">
-      <Project>{d0dc89e7-a70f-4dd2-630f-59861ed613ce}</Project>
+      <Project>{ffa71704-dcd5-64f9-b636-1557c9e72825}</Project>
       <Name>Zenject-IntegrationTests</Name>
     </ProjectReference>
   </ItemGroup>

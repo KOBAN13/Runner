@@ -122,7 +122,7 @@
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"Assets/Plugins/Zenject/Source/Usage/Zenject-usage.dll"
--r:"Z:/Runer/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+-r:"Z:/RunnerCircus/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 -r:"Z:/Новая папка/2021.3.8f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"Z:/Новая папка/2021.3.8f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"Z:/Новая папка/2021.3.8f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
