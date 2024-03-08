@@ -12,15 +12,15 @@ namespace CreateCoupon
     {
         private PoolObject<Ticket> _poolObject;
         private GameObject _coupon;
-        private CouponConfig _couponConfig;
+        private TicketConfig _ticketConfig;
 
-        public CouponFactory(PoolObject<Ticket> poolObject, CouponConfig couponConfig)
+        public CouponFactory(PoolObject<Ticket> poolObject, TicketConfig ticketConfig)
         {
-            _couponConfig = couponConfig ? couponConfig : throw new ArgumentNullException($"{nameof(poolObject)} is null fix this");
+            _ticketConfig = ticketConfig ? ticketConfig : throw new ArgumentNullException($"{nameof(poolObject)} is null fix this");
             
             _poolObject = poolObject ?? throw new ArgumentNullException($"{nameof(poolObject)} is null fix this");
             
-            InitPrefab(_couponConfig.PathLoadPrefab);
+            InitPrefab(_ticketConfig.PathLoadPrefab);
         }
 
         public Ticket GetCoupon(string key)
@@ -32,7 +32,7 @@ namespace CreateCoupon
         {
             _coupon = await LoadCoupon(path);
             
-            _poolObject.AddElementsInPool(_couponConfig.KeyForGetCoupon, _coupon, _couponConfig.CountCouponInScene);
+            _poolObject.AddElementsInPool(_ticketConfig.KeyForGetCoupon, _coupon, _ticketConfig.CountCouponInScene);
         }
 
         private async Task<GameObject> LoadCoupon(string path)

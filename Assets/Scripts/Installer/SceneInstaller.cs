@@ -3,6 +3,7 @@ using Character.Collisions;
 using Character.Physics;
 using Character.PlayerJumpController;
 using Coupon;
+using CreateCoupon;
 using InputSystem;
 using Ui;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class SceneInstaller : MonoInstaller
     [field: SerializeField] public PlayerMovementController MovementController { get; private set; }
     [field: SerializeField] public PlayerJumpController JumpController { get; private set; }
     [field: SerializeField] public CoroutineRunner CoroutineRunner { get; private set; }
-    [field: SerializeField] public View View { get; private set; }
+    [field: SerializeField] public TicketSpawner TicketSpawner { get; private set; }
 
     public override void InstallBindings()
     {
@@ -30,19 +31,18 @@ public class SceneInstaller : MonoInstaller
         BindCourutine();
         BindStopMove();
         BindPoolObject();
-        BindModel();
         BindTimeManager();
+        BindTicketSpawner();
+    }
+
+    private void BindTicketSpawner()
+    {
+        Container.BindInterfacesAndSelfTo<TicketSpawner>().FromInstance(TicketSpawner).NonLazy();
     }
 
     private void BindPoolObject()
     {
         Container.BindInterfacesAndSelfTo<PoolObject<Ticket>>().AsSingle().NonLazy();
-    }
-
-    private void BindModel()
-    {
-        Container.BindInterfacesAndSelfTo<View>().FromInstance(View).NonLazy();
-        Container.BindInterfacesAndSelfTo<Model>().AsSingle().NonLazy();
     }
 
     private void BindTimeManager()

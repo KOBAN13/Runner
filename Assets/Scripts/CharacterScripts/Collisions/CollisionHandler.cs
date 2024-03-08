@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Configs;
+using CreateCoupon;
 using Ui;
 using Ui.UiInterface;
 using UnityEngine;
@@ -12,48 +13,58 @@ namespace Character.Collisions
     {
         private CoroutineHelper _coroutineHelper;
         private IStopMovable _stopMovable;
-        private ICoupon _couponCount;
+        private ITicket _ticketCount;
+        private ILimiter _limiter;
         
-        public event Action<IAnimator, IUseConfigable> OnObstacleCollision;
+        public event Action<IUseConfigable> OnObstacleCollision;
         public event Action OnCouponCollision;
+        public event Action<Limiter> OnLimiterCollision;
 
         [Inject]
-        public void Construct(CoroutineHelper coroutineHelper, IStopMovable stopMovable, ICoupon couponCount)
+        public void Construct(CoroutineHelper coroutineHelper, IStopMovable stopMovable, ITicket ticketCount, ILimiter limiter)
         {
             _coroutineHelper = coroutineHelper;
             _stopMovable = stopMovable;
-            _couponCount = couponCount;
+            _ticketCount = ticketCount;
+            _limiter = limiter;
         }
         
-        public void NotifyObstacleCollision(IAnimator player, IUseConfigable config)
+        public void NotifyObstacleCollision(IUseConfigable config)
         {
-            OnObstacleCollision?.Invoke(player, config);
+            OnObstacleCollision?.Invoke(config);
         }
 
         public void NotifyCouponCollision()
         {
             OnCouponCollision?.Invoke();
         }
-
-        public void HandleObstacleCollision(IAnimator animator, IUseConfigable config)
+        
+        public void NotifyLimiterCollision(Limiter limiter)
         {
-            _coroutineHelper.StartExternalCoroutine(HittingObstacle(animator, config));
+            OnLimiterCollision?.Invoke(limiter);
+        }
+
+        public void HandleObstacleCollision(IUseConfigable config)
+        {
+            _coroutineHelper.StartExternalCoroutine(HittingObstacle(config));
         }
         
         public void HandleCouponCollision()
         {
-            _couponCount.CountCoupon += 1;
+            _ticketCount.CountTicket += 1;
         }
 
-        private IEnumerator HittingObstacle(IAnimator animator, IUseConfigable config)
+        public void HandleLimiterCollision(Limiter limiter)
         {
-            animator.animatorPlayer.SetTriggerEnter();
-            
+            _limiter.HandlerLimiter(limiter);
+        }
+
+        private IEnumerator HittingObstacle(IUseConfigable config)
+        {
             _stopMovable.OnSubcribeEvent();
             _stopMovable.InvokeEventStopMovements(config);
             yield return new WaitForSeconds(config.ConfigPlayer.RecoveryTimeAfterCollision);
             
-            animator.animatorPlayer.SetTriggerExit();
             _stopMovable.Dispose();
         }
     }

@@ -19,22 +19,29 @@ namespace Character.Collisions
         {
             _collisionHandler.OnObstacleCollision += HandleObstacleCollision;
             _collisionHandler.OnCouponCollision += HandleCouponCollision;
+            _collisionHandler.OnLimiterCollision += HandleLimiterCollision;
         }
 
         public void OnDisable()
         {
             _collisionHandler.OnObstacleCollision -= HandleObstacleCollision;
             _collisionHandler.OnCouponCollision -= HandleCouponCollision;
+            _collisionHandler.OnLimiterCollision -= HandleLimiterCollision;
         }
 
-        private void HandleObstacleCollision(IAnimator playerAnimator, IUseConfigable config)
+        private void HandleObstacleCollision(IUseConfigable config)
         {
-            _collisionHandler.HandleObstacleCollision(playerAnimator, config);
+            _collisionHandler.HandleObstacleCollision(config);
         }
 
         private void HandleCouponCollision()
         {
             _collisionHandler.HandleCouponCollision();
+        }
+
+        private void HandleLimiterCollision(Limiter limiter)
+        {
+            _collisionHandler.HandleLimiterCollision(limiter);
         }
     }
 }

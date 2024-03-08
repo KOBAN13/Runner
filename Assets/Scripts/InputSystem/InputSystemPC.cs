@@ -29,7 +29,13 @@ public class InputSystemPC : MonoBehaviour, IInputSystem
     {
         _input.Move.MoveLeft.performed += MoveLeft;
         _input.Move.MoveRight.performed += MoveRight;
+        
+        _input.OtherMove.MoveLeft.performed += MoveLeft;
+        _input.OtherMove.MoveRight.performed += MoveRight;
+        
         _input.Move.Jump.performed += Jump;
+        _input.OtherJump.JumpW.performed += Jump;
+        _input.OtherJump.JumpUpArrow.performed += Jump;
     }
     
     public void OnDisable()

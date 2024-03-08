@@ -7,11 +7,10 @@ using Zenject;
 namespace Character
 {
     [RequireComponent(typeof(CharacterController))]
-    public class Player : MonoBehaviour, IControllable, IAnimator
+    public class Player : MonoBehaviour, IControllable
     {
         private IMovable _movable;
         private IJumpable _jumpable;
-        [field: SerializeField] public AnimatorPlayer animatorPlayer { get; private set; }
 
         [Inject]
         public void Construct(IMovable move, IJumpable jump)

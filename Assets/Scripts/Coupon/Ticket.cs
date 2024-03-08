@@ -1,5 +1,4 @@
-﻿using System;
-using Character.Collisions;
+﻿using Character.Collisions;
 using UnityEngine;
 using Zenject;
 

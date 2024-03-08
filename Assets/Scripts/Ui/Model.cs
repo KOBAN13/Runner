@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Ui.UiInterface;
-using Zenject;
 
 namespace Ui
 {
-    public class Model : ITime, ICoupon
+    public class Model : ITime, ITicket, IPause
     {
-        private View _view;
-        
         private int _countCoupon;
         private string _time;
-        
-        private const string TimeFormatPattern = @"^([0-1]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$";
+        private bool _isPause;
 
-        [Inject]
-        public void Construct(View view)
-        {
-            _view = view;
-        }
+        public readonly ReactiveProperty<int> CouponCount = new();
+        public readonly ReactiveProperty<string> Time = new();
+        public readonly ReactiveProperty<bool> IsPause = new();
+
+        private const string TimeFormatPattern = @"^([0-1]?[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$";
         
         public string TimeStartAfterGame
         {
@@ -28,26 +24,32 @@ namespace Ui
                 if (!CheckTimeFormat(value)) throw new FormatException();
 
                 _time = value;
-                RecordViewTime(_time);
+                Time.Value = _time;
             }
         }
 
-        public int CountCoupon
+        public bool Pause
+        {
+            get => _isPause;
+            set
+            {
+                _isPause = value;
+                IsPause.Value = _isPause;
+            }
+        }
+
+        public int CountTicket
         {
             get => _countCoupon;
             set
             {
                 if (value < 0) throw new ArgumentException();
                 _countCoupon = value;
-                RecordViewCountCoupon(_countCoupon.ToString());
+
+                CouponCount.Value = _countCoupon;
             }
         }
 
-        private void RecordViewTime(string time) => _view.TimeAfterStartGame.text = time;
-
-        private void RecordViewCountCoupon(string count) => _view.CountCoupons.text = count;
-
         private bool CheckTimeFormat(string time) => Regex.IsMatch(time, TimeFormatPattern);
-
     }
 }

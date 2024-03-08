@@ -16,8 +16,10 @@ namespace Character.Collisions
         
         public void OnTriggerEnter(Collider other)
         {
-            if(other.TryGetComponent<IUseConfigable>(out var config) && other.TryGetComponent<IAnimator>(out var animator)) 
-                _collisionHandler.NotifyObstacleCollision(animator, config);
+            if(other.TryGetComponent<IUseConfigable>(out var config)) 
+                _collisionHandler.NotifyObstacleCollision(config);
+            
+            gameObject.SetActive(false);
         }
     }
 }

@@ -90,6 +90,130 @@ public partial class @NewInputSystem : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Pause"",
+            ""id"": ""d8387240-e50d-4ef9-9de4-cc4f83286493"",
+            ""actions"": [
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""b68cad20-0b7d-4597-8775-46db2f89265e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""36ebc501-26fc-4fac-9920-553b5a151a81"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""OtherMove"",
+            ""id"": ""a187c152-82ee-401d-9d60-416ff4a0a0ef"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""2bb91644-a7e2-4730-ab98-dc4187111eb2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3f1922d-ba33-40f2-b33e-a487338a7ec6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""aed0dd33-74dd-4c77-b63e-35db46b9ff7a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f765e162-8ef5-4a7d-9621-ec4374c267aa"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""OtherJump"",
+            ""id"": ""b8e382aa-e653-4170-baf0-2cf548a53c21"",
+            ""actions"": [
+                {
+                    ""name"": ""JumpUpArrow"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c602e3b-4aee-40c8-96cb-d7ebd07e29bd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JumpW"",
+                    ""type"": ""Button"",
+                    ""id"": ""ccc55a0d-d1b7-43cc-98bd-c25f8c32a3dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""489abdd7-f657-46e4-8fe5-d3a3a54b0114"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpUpArrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e7dc349-053e-40c2-8935-8cdbd5177464"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JumpW"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -99,6 +223,17 @@ public partial class @NewInputSystem : IInputActionCollection2, IDisposable
         m_Move_MoveLeft = m_Move.FindAction("MoveLeft", throwIfNotFound: true);
         m_Move_MoveRight = m_Move.FindAction("MoveRight", throwIfNotFound: true);
         m_Move_Jump = m_Move.FindAction("Jump", throwIfNotFound: true);
+        // Pause
+        m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
+        m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
+        // OtherMove
+        m_OtherMove = asset.FindActionMap("OtherMove", throwIfNotFound: true);
+        m_OtherMove_MoveLeft = m_OtherMove.FindAction("MoveLeft", throwIfNotFound: true);
+        m_OtherMove_MoveRight = m_OtherMove.FindAction("MoveRight", throwIfNotFound: true);
+        // OtherJump
+        m_OtherJump = asset.FindActionMap("OtherJump", throwIfNotFound: true);
+        m_OtherJump_JumpUpArrow = m_OtherJump.FindAction("JumpUpArrow", throwIfNotFound: true);
+        m_OtherJump_JumpW = m_OtherJump.FindAction("JumpW", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -203,10 +338,139 @@ public partial class @NewInputSystem : IInputActionCollection2, IDisposable
         }
     }
     public MoveActions @Move => new MoveActions(this);
+
+    // Pause
+    private readonly InputActionMap m_Pause;
+    private IPauseActions m_PauseActionsCallbackInterface;
+    private readonly InputAction m_Pause_Pause;
+    public struct PauseActions
+    {
+        private @NewInputSystem m_Wrapper;
+        public PauseActions(@NewInputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pause => m_Wrapper.m_Pause_Pause;
+        public InputActionMap Get() { return m_Wrapper.m_Pause; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PauseActions set) { return set.Get(); }
+        public void SetCallbacks(IPauseActions instance)
+        {
+            if (m_Wrapper.m_PauseActionsCallbackInterface != null)
+            {
+                @Pause.started -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_PauseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
+            }
+        }
+    }
+    public PauseActions @Pause => new PauseActions(this);
+
+    // OtherMove
+    private readonly InputActionMap m_OtherMove;
+    private IOtherMoveActions m_OtherMoveActionsCallbackInterface;
+    private readonly InputAction m_OtherMove_MoveLeft;
+    private readonly InputAction m_OtherMove_MoveRight;
+    public struct OtherMoveActions
+    {
+        private @NewInputSystem m_Wrapper;
+        public OtherMoveActions(@NewInputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveLeft => m_Wrapper.m_OtherMove_MoveLeft;
+        public InputAction @MoveRight => m_Wrapper.m_OtherMove_MoveRight;
+        public InputActionMap Get() { return m_Wrapper.m_OtherMove; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OtherMoveActions set) { return set.Get(); }
+        public void SetCallbacks(IOtherMoveActions instance)
+        {
+            if (m_Wrapper.m_OtherMoveActionsCallbackInterface != null)
+            {
+                @MoveLeft.started -= m_Wrapper.m_OtherMoveActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.performed -= m_Wrapper.m_OtherMoveActionsCallbackInterface.OnMoveLeft;
+                @MoveLeft.canceled -= m_Wrapper.m_OtherMoveActionsCallbackInterface.OnMoveLeft;
+                @MoveRight.started -= m_Wrapper.m_OtherMoveActionsCallbackInterface.OnMoveRight;
+                @MoveRight.performed -= m_Wrapper.m_OtherMoveActionsCallbackInterface.OnMoveRight;
+                @MoveRight.canceled -= m_Wrapper.m_OtherMoveActionsCallbackInterface.OnMoveRight;
+            }
+            m_Wrapper.m_OtherMoveActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MoveLeft.started += instance.OnMoveLeft;
+                @MoveLeft.performed += instance.OnMoveLeft;
+                @MoveLeft.canceled += instance.OnMoveLeft;
+                @MoveRight.started += instance.OnMoveRight;
+                @MoveRight.performed += instance.OnMoveRight;
+                @MoveRight.canceled += instance.OnMoveRight;
+            }
+        }
+    }
+    public OtherMoveActions @OtherMove => new OtherMoveActions(this);
+
+    // OtherJump
+    private readonly InputActionMap m_OtherJump;
+    private IOtherJumpActions m_OtherJumpActionsCallbackInterface;
+    private readonly InputAction m_OtherJump_JumpUpArrow;
+    private readonly InputAction m_OtherJump_JumpW;
+    public struct OtherJumpActions
+    {
+        private @NewInputSystem m_Wrapper;
+        public OtherJumpActions(@NewInputSystem wrapper) { m_Wrapper = wrapper; }
+        public InputAction @JumpUpArrow => m_Wrapper.m_OtherJump_JumpUpArrow;
+        public InputAction @JumpW => m_Wrapper.m_OtherJump_JumpW;
+        public InputActionMap Get() { return m_Wrapper.m_OtherJump; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OtherJumpActions set) { return set.Get(); }
+        public void SetCallbacks(IOtherJumpActions instance)
+        {
+            if (m_Wrapper.m_OtherJumpActionsCallbackInterface != null)
+            {
+                @JumpUpArrow.started -= m_Wrapper.m_OtherJumpActionsCallbackInterface.OnJumpUpArrow;
+                @JumpUpArrow.performed -= m_Wrapper.m_OtherJumpActionsCallbackInterface.OnJumpUpArrow;
+                @JumpUpArrow.canceled -= m_Wrapper.m_OtherJumpActionsCallbackInterface.OnJumpUpArrow;
+                @JumpW.started -= m_Wrapper.m_OtherJumpActionsCallbackInterface.OnJumpW;
+                @JumpW.performed -= m_Wrapper.m_OtherJumpActionsCallbackInterface.OnJumpW;
+                @JumpW.canceled -= m_Wrapper.m_OtherJumpActionsCallbackInterface.OnJumpW;
+            }
+            m_Wrapper.m_OtherJumpActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @JumpUpArrow.started += instance.OnJumpUpArrow;
+                @JumpUpArrow.performed += instance.OnJumpUpArrow;
+                @JumpUpArrow.canceled += instance.OnJumpUpArrow;
+                @JumpW.started += instance.OnJumpW;
+                @JumpW.performed += instance.OnJumpW;
+                @JumpW.canceled += instance.OnJumpW;
+            }
+        }
+    }
+    public OtherJumpActions @OtherJump => new OtherJumpActions(this);
     public interface IMoveActions
     {
         void OnMoveLeft(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IPauseActions
+    {
+        void OnPause(InputAction.CallbackContext context);
+    }
+    public interface IOtherMoveActions
+    {
+        void OnMoveLeft(InputAction.CallbackContext context);
+        void OnMoveRight(InputAction.CallbackContext context);
+    }
+    public interface IOtherJumpActions
+    {
+        void OnJumpUpArrow(InputAction.CallbackContext context);
+        void OnJumpW(InputAction.CallbackContext context);
     }
 }
