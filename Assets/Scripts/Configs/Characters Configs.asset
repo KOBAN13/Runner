@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354cb80c662015840baed2cfc7128932, type: 3}
   m_Name: Characters Configs
   m_EditorClassIdentifier: 
-  <MinSpeed>k__BackingField: 0
-  <MaxSpeed>k__BackingField: 8
-  <TimeToReachMaximumSpeed>k__BackingField: 3
+  <MinSpeed>k__BackingField: 2
+  <MaxSpeed>k__BackingField: 14
+  <TimeToReachMaximumSpeed>k__BackingField: 4
   <RecoveryTimeAfterCollision>k__BackingField: 3
-  <SliderSpeed>k__BackingField: 50
+  <SliderSpeed>k__BackingField: 8
