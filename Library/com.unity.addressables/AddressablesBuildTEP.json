@@ -1,17 +1,9 @@
 {
-<<<<<<< HEAD
 "Date": "09.03.2024 1:02:20",
-=======
-"Date": "07.03.2024 17:39:19",
->>>>>>> ea8bf41d8e8ce2dd9535078c64a8f4bbf6bb1538
 "UnityVersion": "2021.3.8f1",
 "com.unity.scriptablebuildpipeline": "1.20.1",
 "com.unity.addressables": "1.19.19",
 "traceEvents": [
-<<<<<<< HEAD
 {"name": "Building Use Asset Database (fastest)", "ph": "X", "dur": 787.500000000001, "tid": 1, "ts": 5377, "pid": 1}
-=======
-{"name": "Building Use Asset Database (fastest)", "ph": "X", "dur": 1692, "tid": 1, "ts": 15225, "pid": 1}
->>>>>>> ea8bf41d8e8ce2dd9535078c64a8f4bbf6bb1538
 ]
 }
